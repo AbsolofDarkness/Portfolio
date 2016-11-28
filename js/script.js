@@ -48,7 +48,8 @@ function scene() {
     // Initalize game camera
     var gameCam = new BABYLON.ArcRotateCamera("mainCam", 3, 3.15, 1, new BABYLON.Vector3(0, 10, -13), gameScene);
     gameCam.setTarget(new BABYLON.Vector3.Zero);
-    gameCam.attachControl(canvas);
+    // gameCam.attachControl(canvas);   <-- Disabling player control of camera. Now I can be lazy
+    //                                      about stuff behind the camera.
 
     // Create main light and fill light
     var mainLight = new BABYLON.PointLight("mainLight", new BABYLON.Vector3(0, 5, 5), gameScene);
@@ -142,8 +143,8 @@ function scene() {
 
     playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
 
+    // Need some way to update score text without overlay.
     function updatePlayerScore () {
-        playerScoreDynamicTexture.clear();
         playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
     }
     
