@@ -13,7 +13,6 @@ var moveDistance = 0.2;
 
 document.addEventListener("DOMContentLoaded", function() {
     if (BABYLON.Engine.isSupported()) {
-        playerScore = 0;
         scene();
     }
 }, false);
@@ -129,7 +128,7 @@ function scene() {
     // Score
     var playerScoreDynamicTexture = new BABYLON.DynamicTexture("DynamicTexture", 512, gameScene, false);
 
-    var playerScoreTextMat = new BABYLON.StandardMaterial("play    playerScoreTextMat.emissiveColor = new BABYLON.Color3(1, 1, 1);erScoreTextMat", gameScene);
+    var playerScoreTextMat = new BABYLON.StandardMaterial("playerScoreTextMat", gameScene);
     playerScoreTextMat.diffuseTexture = playerScoreDynamicTexture;
     playerScoreTextMat.diffuseTexture.hasAlpha = true;
     playerScoreTextMat.emissiveColor = new BABYLON.Color3(1, 1, 1);
@@ -143,6 +142,11 @@ function scene() {
 
     playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
 
+    function updatePlayerScore () {
+        playerScoreDynamicTexture.clear();
+        playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
+    }
+    
 
     function ballMovement () {
         // Ball movement scripting here
@@ -178,6 +182,10 @@ function scene() {
                     ballDirZ = -ballDirZ;
                     // Impact ball angle when hitting it
                     ballDirZ -= moveDistance * 0.7;
+                    // Add to Score
+                    playerScore += 1;
+                    // Call function to update score
+                    updatePlayerScore();
                 }
             }
         }
@@ -200,6 +208,8 @@ function scene() {
         }
 
         ballMovement();
+
+        console.log(playerScore);
 
         gameScene.render();
     });
