@@ -8,7 +8,6 @@ var ballDirX, ballDirZ, ballMoveSpeed;
     ballDirZ = 1;
     ballMoveSpeed = 0.1;
 
-var playerScore = null;
 var moveDistance = 0.2;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -125,28 +124,6 @@ function scene() {
     playerPaddle.position = new BABYLON.Vector3(0, 0.45, -5);
 
     shadowGenerator.getShadowMap().renderList.push(playerPaddle);
-
-    // Score
-    var playerScoreDynamicTexture = new BABYLON.DynamicTexture("DynamicTexture", 512, gameScene, false);
-
-    var playerScoreTextMat = new BABYLON.StandardMaterial("playerScoreTextMat", gameScene);
-    playerScoreTextMat.diffuseTexture = playerScoreDynamicTexture;
-    playerScoreTextMat.diffuseTexture.hasAlpha = true;
-    playerScoreTextMat.emissiveColor = new BABYLON.Color3(1, 1, 1);
-
-    var playerScoreText = BABYLON.Mesh.CreatePlane("playerScoreText", 1, gameScene);
-    playerScoreText.material = playerScoreTextMat;
-    playerScoreText.billboardMode = BABYLON.AbstractMesh.BILLBOARDMODE_ALL;
-    playerScoreText.scaling.x = 3;
-    playerScoreText.scaling.y = 2;
-    playerScoreText.position = new BABYLON.Vector3(-7, 4, 2);
-
-    playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
-
-    // Need some way to update score text without overlay.
-    function updatePlayerScore () {
-        playerScoreDynamicTexture.drawText("Score: " + playerScore, 0, 100, "100px ubuntu", "#FFFFFF");
-    }
     
 
     function ballMovement () {
@@ -185,8 +162,6 @@ function scene() {
                     ballDirZ -= moveDistance * 0.7;
                     // Add to Score
                     playerScore += 1;
-                    // Call function to update score
-                    updatePlayerScore();
                 }
             }
         }
@@ -209,8 +184,6 @@ function scene() {
         }
 
         ballMovement();
-
-        console.log(playerScore);
 
         gameScene.render();
     });
