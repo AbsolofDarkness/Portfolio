@@ -160,8 +160,6 @@ function scene() {
                     ballDirZ = -ballDirZ;
                     // Impact ball angle when hitting it
                     ballDirZ -= moveDistance * 0.7;
-                    // Add to Score
-                    playerScore += 1;
                 }
             }
         }
