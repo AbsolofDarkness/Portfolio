@@ -8,8 +8,13 @@ html, body , #wrapper {
     background-color: black;
 }
 
-div {
+/* div {
     outline: solid 1px yellow;
+} */
+
+h1, p {
+    color: wheat;
+    font-family: 'Ubuntu Light', 'Trebuchet MS', serif;
 }
 
 #renderCanvasDiv {
@@ -37,17 +42,6 @@ div {
     height: 100%;
     background-color: green;
 }
-
-/* #scoreCanvas {
-    width: 50px;
-    position: static;
-    left: auto;
-    top: auto;
-    height: 50px;
-    margin: auto;
-    padding: 0;
-    background-color: red;
-} */
 
  #renderCanvas {
     width: 100%;
