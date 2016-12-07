@@ -7,6 +7,7 @@ var ballDirX, ballDirZ, ballMoveSpeed;
     ballDirX = 1;
     ballDirZ = 1;
     ballMoveSpeed = 0.1;
+    playerScore = 0;
 
 var moveDistance = 0.2;
 
@@ -129,6 +130,9 @@ function scene() {
     function ballMovement () {
         // Ball movement scripting here
 
+        // Round movement speed to two decimal places... because OCD
+        ballMoveSpeed = Math.round(ballMoveSpeed * 100) /  100;
+
         // Ball collision detection
         if (ballObject.position.x > 4.25) {
             ballDirX = -ballDirX;
@@ -146,11 +150,14 @@ function scene() {
         ballObject.position.x += ballDirX * ballMoveSpeed;
         ballObject.position.z += ballDirZ * ballMoveSpeed;
 
+        // Every time score is increased by 5, add to speed
+
+
         // Check for collision with paddle
 
         // Check if ball is aligned with paddle on X-axis
         if (ballObject.position.x <= playerPaddle.position.x + playerPaddle.scaling.x 
-        && ballObject.position.x >= playerPaddle.position.x) {
+        && ballObject.position.x >= playerPaddle.position.x - playerPaddle.scaling.x) {
             // Check if ball is aligned with paddle on Z-axis
             if (ballObject.position.z <= playerPaddle.position.z + playerPaddle.scaling.z
             && ballObject.position.z >= playerPaddle.position.z - playerPaddle.scaling.z) {
@@ -160,6 +167,12 @@ function scene() {
                     ballDirZ = -ballDirZ;
                     // Impact ball angle when hitting it
                     ballDirZ -= moveDistance * 0.7;
+                    // Add to score
+                    playerScore += 1;
+                    // Increase speed of ball
+                    ballMoveSpeed += 0.02;
+                    // Display updates score on HTML
+                    document.getElementById("scoreText").innerHTML = "Score: " + playerScore;
                 }
             }
         }
@@ -168,6 +181,9 @@ function scene() {
 
 
     engine.runRenderLoop(function() {
+
+        // Debug stuff here
+        document.getElementById("debugInfo").innerHTML = "Ball Speed: " + ballMoveSpeed;
 
         // Check for player input before rendering
 

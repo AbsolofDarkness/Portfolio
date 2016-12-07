@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/3DPongStyles.css" />
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" />
         <script src="js/babylon.2.4.js"></script>
-        <!-- <script src="js/script.js"></script> -->
+        <script src="js/script.js"></script>
     </head>
     <body>
         <div id="wrapper" >
@@ -13,12 +13,7 @@
                 <canvas id="renderCanvas"></canvas>
             </div>
             <div id="scoreCanvasDiv">
-                <h1>Score:</h1>
-                <p>
-                    Current Score:
-                    <br /> <br />
-                    Top Local Score:
-                </p>
+                <h1 id="scoreText">Score: 0</h1>
             </div>
             <div id="instructCanvasDiv">
                 <h1>Instructions:</h1>
@@ -27,6 +22,7 @@
                     <br />
                     R - Restart
                 </p>
+                <p id="debugInfo"></p>
             </div>
         </div>
     </body>
