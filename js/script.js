@@ -53,7 +53,7 @@ function scene() {
 
     // Create main light and fill light
     var mainLight = new BABYLON.PointLight("mainLight", new BABYLON.Vector3(0, 5, 5), gameScene);
-    mainLight.intensity = 0.5;
+    mainLight.intensity = 0.8;
     var fillLight = new BABYLON.SpotLight("fillLight", new BABYLON.Vector3(0, 1, -5), new BABYLON.Vector3(0, 0, 1), 6, 3, gameScene);
     fillLight.intensity = 0.3;
     fillLight.diffuse = new BABYLON.Color3(0.5, 0.5, 0.1);
