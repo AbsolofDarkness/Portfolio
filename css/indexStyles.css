@@ -12,12 +12,14 @@ html {
     margin: 0;
     padding: 0;
     border: none;
+    overflow: auto;
 }
 
 header {
     width: 100%;
     margin: 0;
     padding: 0;
+
     border: none;
     background-image: url("../images/materialHeaderImage.jpg");
 }
