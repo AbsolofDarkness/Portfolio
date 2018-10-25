@@ -4,37 +4,25 @@
 *
 */
 
-div {
-    outline: solid 1px firebrick;
+.view {
+    background: url("../images/headerImage.jpg")no-repeat center center;
+    background-size: cover;
 }
 
-html {
-    margin: 0;
-    padding: 0;
-    border: none;
-    overflow: auto;
+.navbar {
+    background-color: transparent;
 }
 
-header {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    border: none;
-    background-image: url("../images/materialHeaderImage.jpg");
+.top-nav-collapse {
+    background-color: #3949AB;
 }
 
-h1 {
-   text-align: center;
+html, body, header,.view {
+    height: 100%;
 }
 
-body{
-     background-image:url("../images/tiled web background 1.png");
-}
- 
-footer{
-       clear:both;
-       position:relative;
-       position:fixed;
-       bottom:0;
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #3949AB;
+    }
 }
