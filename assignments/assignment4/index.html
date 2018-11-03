@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!--
+    <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Crystal Collector</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title">
+                <h1>Crystal Collector!</h1>
+            </div>
+
+            <div class="instructionsDiv">
+                <p>You will be given a random number at the start of the game.</p>
+                
+                <br>
+
+                <p>There are four crystals below. Clicking on a crystal will add a specific
+                    amount of points to your total score.
+                </p>
+                
+                <br>
+
+                <p>You win the game by matching your total score to the random number,
+                    you lose the game by going above the random number.
+                </p>
+
+                <br>
+
+                <p>The value of each crystal is unknown until you click on it.</p>
+
+                <br>
+
+                <p>Each time the game restarts, the value of each crystal will change.</p>
+            </div>
+
+            <div class="randomNumberDiv">
+                <h2 id="randNum">YOU SHOULD NOT SEE THIS</h2>
+            </div>
+
+            <div class="winsAndLossesDiv">
+                <p id="wins"></p>
+                <br>
+                <p id="losses"></p>
+            </div>
+
+            <div class="gemContainer">
+                <img class="gemImage" id="redGem" src="assets/images/gemRed.png">
+                <img class="gemImage" id="blueGem" src="assets/images/gemBlue.png">
+                <img class="gemImage" id="orangeGem" src="assets/images/gemOrange.png">
+                <img class="gemImage" id="greenGem" src="assets/images/gemGreen.png">
+            </div>
+
+            <div class="totalScoreText">
+                <p>Your total score is:</p>
+            </div>
+
+            <div class="totalScoreNum">
+                <h2 id="scoreNum">??</h2>
+            </div>
+        </div>
+
+        <script src="assets/js/game.js"></script>
+    </body>
+</html>
