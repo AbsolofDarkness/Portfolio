@@ -56,14 +56,20 @@ $(document).on("click", "img", function() {
 
 // Add adding buttons to top list
 $(".btn-success").on("click", function() {
-    var inputBoxText = $("#searchTerm").val().trim();
 
-    var buttonTemplate = $(`<button type="button" class="btn btn-primary">`);
-    buttonTemplate.html(inputBoxText.toUpperCase());
-    buttonTemplate.attr("data-topic-name", inputBoxText);
-    $(".buttonsGroup").append(buttonTemplate);
+    if ($("#searchTerm").val() === "") {
+        return;
+    }
+    else {
+        var inputBoxText = $("#searchTerm").val().trim();
 
-    $("#searchTerm").val("");
+        var buttonTemplate = $(`<button type="button" class="btn btn-primary">`);
+        buttonTemplate.html(inputBoxText.toUpperCase());
+        buttonTemplate.attr("data-topic-name", inputBoxText);
+        $(".buttonsGroup").append(buttonTemplate);
+
+        $("#searchTerm").val("");
+    }
 });
 
 

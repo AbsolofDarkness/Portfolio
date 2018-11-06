@@ -1,3 +1,7 @@
+body {
+    background-image: url(country-quilt.png);
+}
+
 .btn-primary {
     margin: 5px;
 }
