@@ -41,7 +41,7 @@ function runGame (guessingTerm, numOfGuessesLeft) {
     
         // Display spaces for word
         var underscores = document.getElementById("text");
-        if (guessingTerm.charCodeAt(x) == 95) {
+        if (guessingTerm.charCodeAt(x) === 95) {
             answerArray.push("&nbsp");
             numOfLettersLeft--;
         }
@@ -60,7 +60,7 @@ function runGame (guessingTerm, numOfGuessesLeft) {
         // console.log(guessedLetter);
 
         // Check if letter has already been guessed
-        if (guessedLetters.includes(guessedLetter.toUpperCase()) == true) {
+        if (guessedLetters.includes(guessedLetter.toUpperCase()) === true) {
             alert("Already guessed this letter!!");
         }
 
@@ -79,19 +79,19 @@ function runGame (guessingTerm, numOfGuessesLeft) {
             }
         
 
-            if (letterIncluded == false) {
+            if (letterIncluded === false) {
                 numOfGuessesLeft--;
                 numOfGuessesText.innerHTML = "Guesses Left: " + numOfGuessesLeft;
                 wrongLettersText.innerHTML += guessedLetter.toUpperCase() + ", ";
 
             }
 
-            if (numOfGuessesLeft == 0) {
+            if (numOfGuessesLeft === 0) {
                 alert("You Lose! Try again!");
                 preGame();
             }
 
-            if (numOfLettersLeft == 0) {
+            if (numOfLettersLeft === 0) {
                 alert("You Win! Press Enter to Play Again!");
                 instructionText.innerHTML = "Press Enter to Play Again!";
                 numOfWins++;
@@ -99,7 +99,7 @@ function runGame (guessingTerm, numOfGuessesLeft) {
             }
         }
 
-        if (numOfLettersLeft == 0 && event.keyCode == 13) {
+        if (numOfLettersLeft === 0 && event.keyCode === 13) {
             preGame();
         }
 
