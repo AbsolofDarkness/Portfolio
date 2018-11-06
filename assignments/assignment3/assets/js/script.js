@@ -10,10 +10,6 @@ var numOfGuessesText = document.getElementById("guessesLeft");
 var numOfWinsText = document.getElementById("wins");
 var instructionText = document.getElementById("instructions");
 
-
-// First run of preGame()
-preGame();
-
 // Gets word, resets numOfGuesses, resets guessed letters
 function preGame () {
     // Variables for Pre Game use
@@ -102,12 +98,8 @@ function runGame (guessingTerm, numOfGuessesLeft) {
         if (numOfLettersLeft === 0 && event.keyCode === 13) {
             preGame();
         }
-
-        // Testing, remove after push to production
-        console.log(guessedLetter);
-        console.log(guessingTermArray);
-        console.log("Number of Guesses: " + numOfGuessesLeft);
-        console.log("Number of Letters Left: " + numOfLettersLeft);
-
     };
 }
+
+// First run of preGame()
+preGame();
