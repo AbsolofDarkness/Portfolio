@@ -4,7 +4,7 @@ window.onload = function () {
     // Load initial buttons
     for (var x = 0; x < topics.length; x++) {
         var btnTemplate = $(`<button type="button">`);
-        btnTemplate.html(topics[x]);
+        btnTemplate.html(topics[x].toUpperCase());
         btnTemplate.attr("data-topic-name", topics[x]);
         btnTemplate.addClass("btn btn-primary");
         $(".buttonsGroup").append(btnTemplate);
@@ -24,9 +24,8 @@ $(document).on("click", ".btn-primary", function() {
         method: "GET"
     }).then(function(response) {
         for(var y = 0; y < response.data.length; y++) {
-            console.log(response.data.length);
-            var gifDiv = $(`<div class = "gifs">`);
-            var gifRating = $(`<p class= "gifRatingText">`);
+            var gifDiv = $(`<div class="gifs">`);
+            var gifRating = $(`<p class="gifRatingText">`);
             var gifArea = $(".gifArea");
             var gifTemp = $("<img>");
             gifTemp.attr("gifStill", response.data[y].images.fixed_height_still.url);
@@ -56,6 +55,15 @@ $(document).on("click", "img", function() {
 });
 
 // Add adding buttons to top list
+$(".btn-success").on("click", function() {
+    var inputBoxText = $("#searchTerm").val().trim();
 
+    var buttonTemplate = $(`<button type="button" class="btn btn-primary">`);
+    buttonTemplate.html(inputBoxText.toUpperCase());
+    buttonTemplate.attr("data-topic-name", inputBoxText);
+    $(".buttonsGroup").append(buttonTemplate);
+
+    $("#searchTerm").val("");
+});
 
 

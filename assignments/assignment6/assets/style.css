@@ -1,5 +1,8 @@
-.btn {
+.btn-primary {
     margin: 5px;
+}
+.btn-success {
+    margin-top: 10px;
 }
 
 .gifs {
