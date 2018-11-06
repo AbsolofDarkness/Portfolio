@@ -1,0 +1,20 @@
+body {
+    background-image: url(country-quilt.png);
+}
+
+.btn-primary {
+    margin: 5px;
+}
+.btn-success {
+    margin-top: 10px;
+}
+
+.gifs {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.gifRatingText {
+    font-weight: 900;
+}

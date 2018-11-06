@@ -4,8 +4,6 @@ var wins = 0;
 var loses = 0;
 var userNum = 0;
 
-preGame();
-
 function preGame () {
     var randomNumber = Math.floor(Math.random() * (120 - 20)) + 19;
     var gemValues = {
@@ -27,9 +25,23 @@ function preGame () {
     $("#wins").text("Wins: " + wins);
     $("#losses").text("Loses: " + loses);
 
-    //Debug
-    console.log(gemValues);
-    console.log("Are you cheating, or a dev?")
+}
+
+function addValueAndCompare (clickedGemValue, randomNumber) {
+    userNum = userNum + clickedGemValue;
+    $("#scoreNum").text(userNum);
+
+    if (userNum > randomNumber) {
+        alert("Game Over! You Lose!");
+        loses++;
+        preGame();
+    }
+
+    else if (userNum == randomNumber) {
+        alert("You Win!");
+        wins++;
+        preGame();
+    }
 
 }
 
@@ -49,24 +61,4 @@ $("#greenGem").on("click", function() {
     addValueAndCompare(parseInt($(this).attr("gemValue")), parseInt($("#randNum").text()));
 });
 
-function addValueAndCompare (clickedGemValue, randomNumber) {
-    console.log("Clicked Gem Value: " + clickedGemValue);
-
-    userNum = userNum + clickedGemValue;
-    $("#scoreNum").text(userNum);
-
-    console.log("User Number: " + userNum);
-
-    if (userNum > randomNumber) {
-        alert("Game Over! You Lose!");
-        loses++;
-        preGame();
-    }
-
-    else if (userNum == randomNumber) {
-        alert("You Win!");
-        wins++;
-        preGame();
-    }
-
-}
+preGame();
