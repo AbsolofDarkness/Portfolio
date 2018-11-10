@@ -9,13 +9,49 @@ var config = {
   };
 firebase.initializeApp(config);
 
-var testVar = "tesst";
+var trainNamesLocal = "";
+var trainDestinationLocal = "";
+var firstTrainTimeLocal = "";
+var frequencyLocal = "";
 
 var database = firebase.database();
 database.ref().on("value", function(snapshot) {
-    database.ref().set({
-        testVariable: testVar
-    });
+    // database.ref().set({
+    //     numOfTrains: numOfTrainsLocal,
+    //     trainNames: trainNamesLocal,
+    //     trainDestination: trainDestinationLocal,
+    //     firstTrainTime: firstTrainTimeLocal,
+    //     trainFrequency: frequencyLocal
+    // });
 }, function(errorObject) {
     console.error("The read failed: " + errorObject.code);
 });
+
+$(document).ready(function() {
+    // Add colon to time
+    $("#firstTrainTime").keypress(function() {
+        if($(this).val().length == 2) {
+            $(this).val($(this).val() + ":");
+        }
+    });
+});
+
+$("#submitButton").on("click", function(event) {
+    event.preventDefault();
+    trainNamesLocal = $("#trainName").val().trim();
+    trainDestinationLocal = $("#destination").val().trim();
+    firstTrainTimeLocal = $("#firstTrainTime").val().trim();
+    frequencyLocal = $("#trainFrequency").val().trim();
+
+    database.ref().push({
+        trainNames: trainNamesLocal,
+        trainDestination: trainDestinationLocal,
+        firstTrainTime: firstTrainTimeLocal,
+        trainFrequency: frequencyLocal
+    })
+
+    $("#trainName").val("");
+    $("#destination").val("");
+    $("#firstTrainTime").val("");
+    $("#trainFrequency").val("");
+})
