@@ -15,18 +15,6 @@ var firstTrainTimeLocal = "";
 var frequencyLocal = "";
 
 var database = firebase.database();
-database.ref().on("value", function(snapshot) {
-    // database.ref().set({
-    //     numOfTrains: numOfTrainsLocal,
-    //     trainNames: trainNamesLocal,
-    //     trainDestination: trainDestinationLocal,
-    //     firstTrainTime: firstTrainTimeLocal,
-    //     trainFrequency: frequencyLocal
-    // });
-}, function(errorObject) {
-    console.error("The read failed: " + errorObject.code);
-});
-
 $(document).ready(function() {
     // Add colon to time
     $("#firstTrainTime").keypress(function() {
@@ -46,7 +34,7 @@ $("#submitButton").on("click", function(event) {
     database.ref().push({
         trainNames: trainNamesLocal,
         trainDestination: trainDestinationLocal,
-        firstTrainTime: firstTrainTimeLocal,
+        firstTrainTime: moment(moment(firstTrainTimeLocal, "HH:mm")).format("X"), //This is in 24 hr time, converted to Unix
         trainFrequency: frequencyLocal
     })
 
@@ -54,4 +42,30 @@ $("#submitButton").on("click", function(event) {
     $("#destination").val("");
     $("#firstTrainTime").val("");
     $("#trainFrequency").val("");
+});
+
+database.ref().on("child_added", function(snapshot){
+    var sv = snapshot.val();
+    var currentTime = moment(new Date(), "hh:mm");
+    var minutesUntilTrain = "";
+
+    var getNextTime = function() {
+        var timeConverted = moment(sv.firstTrainTime, "X").subtract(1, "years");
+        var diffTime = moment(currentTime).diff(moment(timeConverted), "minutes");
+        var timeRemainder = diffTime % sv.trainFrequency;
+        minutesUntilTrain = sv.trainFrequency - timeRemainder;
+
+        return(moment(currentTime).add(minutesUntilTrain, "minutes"));
+
+    };
+
+    $("#tableBody").append(`
+        <tr>
+            <td>${sv.trainNames}</td>
+            <td>${sv.trainDestination}</td>
+            <td>${sv.trainFrequency}</td>
+            <td>${moment(getNextTime()).format("hh:mm A")}</td>
+            <td>${minutesUntilTrain}</td>
+        </tr>
+    `)
 })
