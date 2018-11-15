@@ -1,3 +1,11 @@
+/*
+    https://www.color-hex.com/color-palette/67441
+*/
+
 .jumbotron {
-    background-color: chocolate;
+    background-color: #ba2644;
+}
+
+.card-header {
+    background-color: #00bcb5;
 }

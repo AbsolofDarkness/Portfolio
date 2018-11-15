@@ -56,7 +56,6 @@ database.ref().on("child_added", function(snapshot){
         minutesUntilTrain = sv.trainFrequency - timeRemainder;
 
         return(moment(currentTime).add(minutesUntilTrain, "minutes"));
-
     };
 
     $("#tableBody").append(`
@@ -68,4 +67,4 @@ database.ref().on("child_added", function(snapshot){
             <td>${minutesUntilTrain}</td>
         </tr>
     `)
-})
+});

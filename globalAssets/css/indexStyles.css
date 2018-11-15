@@ -28,7 +28,7 @@ hr {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
     .navbar {
         background-color: #3949AB;
     }
