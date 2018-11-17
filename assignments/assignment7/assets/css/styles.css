@@ -1,0 +1,15 @@
+/*
+    https://www.color-hex.com/color-palette/67441
+*/
+
+body {
+    background-image: url(../images/what-the-hex.png);
+}
+
+.jumbotron {
+    background-color: #ba2644;
+}
+
+.card-header {
+    background-color: #00bcb5;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Firebase Assignment</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h1 class="display-4 text-center text-white">Anytime is Train Time</h1>
+                        <h3 class="display-6 text-center text-white">Choo Choo!</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Train Table Card -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header text-white">
+                            Current Train Schedule
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <caption id="lastUpdated"></caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">Frequency (min)</th>
+                                        <th scope="col">Next Arrival</th>
+                                        <th scope="col">Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    <!-- Add Stuff Here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Train Table -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header text-white">
+                            Add Train:
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="trainName">Train Name: </label>
+                                <input type="text" class="form-control" id="trainName">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination: </label>
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstTrainTime">First Train Time (HH:mm - military time): </label>
+                                <input type="text" class="form-control" maxlength="5" max="23:59" id="firstTrainTime">
+                            </div>
+                            <div class="form-group">
+                                <label for="trainFrequency">Frequency (min): </label>
+                                <input type="number" class="form-control" id="trainFrequency">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+        <script src="../../node_modules/moment/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
