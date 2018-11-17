@@ -66,5 +66,7 @@ database.ref().on("child_added", function(snapshot){
             <td>${moment(getNextTime()).format("hh:mm A")}</td>
             <td>${minutesUntilTrain}</td>
         </tr>
-    `)
+    `);
+
+    $("#lastUpdated").text(`Last Updated ${moment(currentTime).format("hh:mm A")}`);
 });
