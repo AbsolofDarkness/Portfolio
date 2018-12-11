@@ -1,10 +1,13 @@
 // Requirements
 require('dotenv').config();
-let spotify = require('node-spotify-api');
+let Spotify = require('node-spotify-api');
 let moment = require('moment');
 let axios = require('axios');
 let inquirer = require('inquirer');
 let colors = require('colors');
+const keys = require("./keys")
+
+var spotify = new Spotify(keys.spotify);
 
 String.prototype.unquoted = function (){return this.replace (/(^")|("$)/g, '')}
 
@@ -47,7 +50,7 @@ let concertThis = function () {
     inquirer.prompt([
         {
             type: "input",
-            message: "Please Enter the band name: ",
+            message: "Enter the Band Name: ",
             name: "bandName"
         }
     ]).then(function(inquirerResponse) {
@@ -67,6 +70,31 @@ let concertThis = function () {
         ).catch(function (error) {
             // console.log(error);
             console.log(colors.red("This Artist has no concerts!!!"));
+        });
+    });
+}
+
+let spotifyThisSong = function () {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Enter Song Name: ",
+            name: "songName"
+        }
+    ]).then(function(inquirerResponse) {
+        let songName = JSON.stringify(inquirerResponse.songName);
+
+        spotify.search({type: "track", query: songName, limit: 1}, function(err, data) {
+            if (err) {
+                //return console.log("Error occured: " + err);
+                return console.log("Whoopsie!! Something went wrong!! Please try again, and contact dev if problem persists!!");
+            }
+
+            // console.log(data);
+            console.log(`${colors.green("Artist: ")}${colors.blue(data.tracks.items[0].album.artists[0].name)}`);
+            console.log(`${colors.green("Song Name: ")}${colors.blue(data.tracks.items[0].name)}`);
+            console.log(`${colors.green("Preview URL: ")}${colors.blue(data.tracks.items[0].preview_url)}`);
+            console.log(`${colors.green("Album: ")}${colors.blue(data.tracks.items[0].album.name)}`);
         });
     });
 }
