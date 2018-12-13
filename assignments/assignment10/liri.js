@@ -82,7 +82,13 @@ let spotifyThisSong = function () {
             name: "songName"
         }
     ]).then(function(inquirerResponse) {
-        let songName = JSON.stringify(inquirerResponse.songName);
+        let songName = "";
+
+        if (inquirerResponse.songName === "") {
+            songName = "The Sign";
+        } else {
+            songName = JSON.stringify(inquirerResponse.songName);
+        }
 
         spotify.search({type: "track", query: songName, limit: 1}, function(err, data) {
             if (err) {
@@ -96,6 +102,41 @@ let spotifyThisSong = function () {
             console.log(`${colors.green("Preview URL: ")}${colors.blue(data.tracks.items[0].preview_url)}`);
             console.log(`${colors.green("Album: ")}${colors.blue(data.tracks.items[0].album.name)}`);
         });
+    });
+}
+
+let movieThis = function () {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Enter Movie Name: ",
+            name: "movieName"
+        }
+    ]).then(function(inquirerResponse) {
+        let movieName = "";
+
+        if (inquirerResponse.movieName === "") {
+            movieName = "Mr.Nobody";
+            
+        } else {
+            movieName = JSON.stringify(inquirerResponse.movieName);
+        }
+        
+        let movieNameURL = movieName.split(" ").join("%20");
+        let URL = `http://www.omdbapi.com/?t=${movieNameURL.unquoted()}&y=&plot=short&apikey=trilogy`;
+        axios.get(URL).then(
+            function (response) {
+                console.log(`${colors.green("Title: ")}${colors.blue(response.data.Title)}`);
+                console.log(`${colors.green("Year Released: ")}${colors.blue(response.data.Year)}`);
+                console.log(`${colors.green("IMDB Rating: ")}${colors.blue(response.data.Ratings[0].Value)}`);
+                console.log(`${colors.green("Rotten Tomatoes Rating: ")}${colors.blue(response.data.Ratings[1].Value)}`);
+                console.log(`${colors.green("Country of Production: ")}${colors.blue(response.data.Country)}`);
+                console.log(`${colors.green("Language: ")}${colors.blue(response.data.Language)}`);
+                console.log(`${colors.green("Plot: ")}${colors.blue(response.data.Plot)}`);
+                console.log(`${colors.green("Actors: ")}${colors.blue(response.data.Actors)}`);
+            }
+        );
+
     });
 }
 
