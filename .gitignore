@@ -1,5 +1,7 @@
 # ignore an entire directory
 /.vscode/
+/.vs/
+/node_modules/@types
 /assignments/assignment10/node_modules
 /assignments/assignment10/.env
 /assignments/assignment12
