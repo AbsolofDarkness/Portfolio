@@ -1,11 +1,12 @@
 /*
-*   
+*
 *
 *
 */
 
 .view {
-    background: url("../images/headerImage.jpg")no-repeat center center;
+    background: url("../images/headerImage2.jpg")no-repeat center center;
+    z-index: -2;
     background-size: cover;
 }
 
@@ -31,5 +32,8 @@ hr {
 @media only screen and (max-width: 992px) {
     .navbar {
         background-color: #3949AB;
+    }
+    main {
+        margin-top: 40px;
     }
 }

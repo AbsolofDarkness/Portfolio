@@ -8,9 +8,9 @@ function loadQuote () {
     quoteAuthor.text(quotes[randNum].author);
 }
 
-$('.navbar-collapse ul li a').click(function() {
+$('.navbar-collapse a').click(function() {
     /* always close responsive nav after click */
-    $('.navbar-toggle:visible').click();
+    $('.navbar-collapse').collapse("hide");
 });
 
 jQuery(".scroll_to").on("click", function(e){
@@ -20,4 +20,10 @@ jQuery(".scroll_to").on("click", function(e){
     e.preventDefault();
 });
 
-window.onload = loadQuote();
+particlesJS.load("particles-js", "./globalAssets/particles.json", () => {
+    console.log("Particles Config Loaded");
+})
+
+window.onload = () => {
+    loadQuote();
+};
