@@ -1,0 +1,16 @@
+{
+  "name": "assignment12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mysql": "^2.15.5",
+    "inquirer": "^6.2.1",
+    "mysql": "^2.16.0"
+  }
+}
