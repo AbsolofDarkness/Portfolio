@@ -12,8 +12,9 @@ class App extends Component {
         <div className="App">
           <header>
             <Navbar />
-            <View />
+            {/* <View /> */}
             <Switch>
+              <Route exact path="/" component={View} />
               <Route exact path="#profile" />
               <Route exact path="#experience" />
               <Route exact path="#projects" />
