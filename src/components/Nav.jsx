@@ -8,7 +8,6 @@ import {
   MDBNavLink
 } from "mdbreact";
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 
 class Navbar extends Component {
   state = {
@@ -21,7 +20,6 @@ class Navbar extends Component {
 
   render() {
     return (
-      <Router>
         <MDBNavbar
           fixed="top"
           expand="md"
@@ -49,7 +47,6 @@ class Navbar extends Component {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-      </Router>
     );
   }
 }
