@@ -8,7 +8,7 @@ const Experiences = () => {
   return (
     <MDBRow>
       <MDBCol md="4">
-        <MDBCard wide>
+        <MDBCard wide className="mb-4">
           <MDBCardImage cascade overlay="blue-light" className="img-fluid" src={FrontEnd} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>
@@ -33,7 +33,7 @@ const Experiences = () => {
         </MDBCard>
       </MDBCol>
       <MDBCol md="4">
-        <MDBCard wide>
+        <MDBCard wide className="mb-4">
           <MDBCardImage cascade overlay="cyan-light" className="img-fluid" src={BackEnd} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>
@@ -54,7 +54,7 @@ const Experiences = () => {
         </MDBCard>
       </MDBCol>
       <MDBCol md="4">
-        <MDBCard wide>
+        <MDBCard wide className="mb-4">
           <MDBCardImage cascade overlay="red-light" className="img-fluid" src={Other} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>

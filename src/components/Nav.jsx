@@ -1,12 +1,4 @@
-import {
-  MDBCollapse,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBNavItem,
-  MDBNavLink
-} from "mdbreact";
+import { MDBCollapse, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBSmoothScroll } from "mdbreact";
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./Nav.css";
@@ -25,32 +17,21 @@ class Navbar extends Component {
     return (
       <Router>
         <div>
-          <MDBNavbar
-            color="indigo"
-            dark
-            expand="md"
-            fixed="top"
-            scrolling
-            transparent
-          >
+          <MDBNavbar color="indigo" dark expand="md" fixed="top" scrolling transparent>
             <MDBNavbarBrand>
               <strong className="white-text">Nicholas Papageorge</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse")} />
-            <MDBCollapse
-              id="navbarCollapse"
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem>
-                  <MDBNavLink to="#profile">About Me</MDBNavLink>
+                  <MDBSmoothScroll to="profile">About Me</MDBSmoothScroll>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to="#experiences">Experience</MDBNavLink>
+                  <MDBSmoothScroll to="experiences">Experience</MDBSmoothScroll>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to="#projects">Projects</MDBNavLink>
+                  <MDBSmoothScroll to="projects">Projects</MDBSmoothScroll>
                 </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>

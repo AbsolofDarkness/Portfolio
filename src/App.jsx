@@ -3,16 +3,13 @@ import React, { Component } from "react";
 import "./App.css";
 import AboutMe from "./components/AboutMe";
 import Experiences from "./components/Experiences";
+import Footer from "./components/Footer";
 import Navbar from "./components/Nav";
 import Projects from "./components/Projects";
 import View from "./components/View";
 
 class App extends Component {
   render() {
-    // TODO: Integrate ParticlesJS into final product
-    // particlesJS.load("particles-js", "./globalAssets/particles.json", () => {
-    //   console.log("Particles Config Loaded");
-    // });
     return (
       <div>
         <header id="viewPage">
@@ -59,6 +56,7 @@ class App extends Component {
             <Projects />
           </MDBContainer>
         </main>
+        <Footer />
       </div>
     );
   }
