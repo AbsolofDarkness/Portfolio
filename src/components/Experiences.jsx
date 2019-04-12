@@ -9,7 +9,7 @@ const Experiences = () => {
     <MDBRow>
       <MDBCol md="4">
         <MDBCard wide className="mb-4">
-          <MDBCardImage cascade overlay="blue-light" className="img-fluid" src={FrontEnd} />
+          <MDBCardImage cascade overlay="blue-light" className="img-fluid" waves={false} src={FrontEnd} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>
               <MDBIcon icon="desktop" /> Frontend
@@ -34,7 +34,7 @@ const Experiences = () => {
       </MDBCol>
       <MDBCol md="4">
         <MDBCard wide className="mb-4">
-          <MDBCardImage cascade overlay="cyan-light" className="img-fluid" src={BackEnd} />
+          <MDBCardImage cascade overlay="cyan-light" className="img-fluid" waves={false} src={BackEnd} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>
               <MDBIcon icon="database" /> Backend
@@ -55,7 +55,7 @@ const Experiences = () => {
       </MDBCol>
       <MDBCol md="4">
         <MDBCard wide className="mb-4">
-          <MDBCardImage cascade overlay="red-light" className="img-fluid" src={Other} />
+          <MDBCardImage cascade overlay="red-light" className="img-fluid" waves={false} src={Other} />
           <MDBCardBody cascade className="text-center">
             <MDBCardTitle>
               <MDBIcon icon="dice" /> Other
