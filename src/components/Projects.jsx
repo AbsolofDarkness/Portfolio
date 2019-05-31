@@ -102,7 +102,7 @@ const Projects = () => {
           <MDBCard className="card-image z-depth-4" style={{ backgroundImage: `url(${Project7Image})` }}>
             <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
               <div>
-                <h5 className="orange-text">
+                <h5 className="red-text">
                   <MDBIcon icon="database" /> Project 5
                 </h5>
                 <MDBCardTitle tag="h3" className="pt-2">
@@ -112,8 +112,8 @@ const Projects = () => {
                   Using Firebase for a remote database, and moment for time calculations, this site can be accessed anywhere, and will show the same
                   anywhere.
                 </p>
-                <MDBBtn color="orange" href="#" target="_blank">
-                  <MDBIcon icon="clone left" /> View Project
+                <MDBBtn color="red" disabled href="#" target="_blank">
+                  <MDBIcon icon="wrench left" /> Being Updated
                 </MDBBtn>
               </div>
             </div>

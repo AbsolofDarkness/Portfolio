@@ -4,22 +4,25 @@ import "./Nav.css";
 
 class Navbar extends Component {
   state = {
-    isOpen: false
+    collapsed: false
   };
 
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  handleTogglerClick = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
   };
 
   render() {
+    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: "transparent" }} onClick={this.handleTogglerClick} />;
     return (
       <div>
         <MDBNavbar color="indigo" dark expand="md" fixed="top" scrolling transparent>
           <MDBNavbarBrand>
             <strong className="white-text">Nicholas Papageorge</strong>
           </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
-          <MDBCollapse id="navbarCollapse" isOpen={this.state.isOpen} navbar>
+          <MDBNavbarToggler onClick={this.handleTogglerClick} />
+          <MDBCollapse isOpen={this.state.collapsed} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
                 <MDBSmoothScroll to="profile">About Me</MDBSmoothScroll>
@@ -33,7 +36,7 @@ class Navbar extends Component {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-        {this.state.collapsed}
+        {this.state.collapsed && overlay}
       </div>
     );
   }

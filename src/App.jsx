@@ -6,6 +6,7 @@ import Experiences from "./components/Experiences";
 import Footer from "./components/Footer";
 import Navbar from "./components/Nav";
 import Projects from "./components/Projects";
+import Timeline from "./components/Timeline";
 import View from "./components/View";
 
 class App extends Component {
@@ -42,6 +43,18 @@ class App extends Component {
             </MDBRow>
             {/* Experiences contains MDBRow */}
             <Experiences />
+            <MDBRow id="timeline">
+              <MDBCol size="12">
+                <h1 className="display-4 text-center">Eduication Timeline</h1>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol size="12">
+                <hr />
+              </MDBCol>
+            </MDBRow>
+            {/* Timeline contains MDBRow */}
+            <Timeline />
             <MDBRow id="projects">
               <MDBCol size="12">
                 <h1 className="display-4 text-center">Projects</h1>
