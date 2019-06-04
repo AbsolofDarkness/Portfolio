@@ -9,6 +9,25 @@ const Timeline = () => {
         <div className="profile-timeline">
           <div className="timeline">
             <span className="timeline-icon" />
+            <span className="year">2018 - 2019</span>
+            <div className="timeline-content">
+              <h3 className="title">Full-Stack Developer</h3>
+              <span className="description text-left">
+                Northwestern University, Evanston, USA
+                <ul>
+                  <li>Created responsive websites from scratch</li>
+                  <li>Developed front-end and back-end of web applications.</li>
+                  <li>
+                    Develop web applications according to the client's
+                    requirement.
+                  </li>
+                  <li>Make web apps in React.js</li>
+                </ul>
+              </span>
+            </div>
+          </div>
+          <div className="timeline">
+            <span className="timeline-icon" />
             <span className="year">2014 - 2016</span>
             <div className="timeline-content">
               <h3 className="title">3D Gaming & App Development</h3>

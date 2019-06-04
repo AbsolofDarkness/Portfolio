@@ -45,7 +45,7 @@ class App extends Component {
             <Experiences />
             <MDBRow id="timeline">
               <MDBCol size="12">
-                <h1 className="display-4 text-center">Eduication Timeline</h1>
+                <h1 className="display-4 text-center">Education Timeline</h1>
               </MDBCol>
             </MDBRow>
             <MDBRow>
@@ -57,7 +57,7 @@ class App extends Component {
             <Timeline />
             <MDBRow id="projects">
               <MDBCol size="12">
-                <h1 className="display-4 text-center">Projects</h1>
+                <h1 className="display-4 text-center">Boot Camp Projects</h1>
               </MDBCol>
             </MDBRow>
             <MDBRow>
